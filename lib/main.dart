@@ -103,6 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               wordPair.asPascalCase,
             ),
+            RandomWords(),
             Row(),
           ],
         ),
@@ -115,5 +116,20 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+}
+
+class RandomWordsState extends State<RandomWords> {
+  @override
+  Widget build(BuildContext context) {
+    final wordPair = WordPair.random();
+    return Text(wordPair.asPascalCase);
+  }
+}
+
+class RandomWords extends StatefulWidget {
+  @override
+  RandomWordsState createState() {
+    return RandomWordsState();
   }
 }
