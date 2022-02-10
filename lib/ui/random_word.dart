@@ -1,8 +1,8 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class RandomWordsUI extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,7 +27,7 @@ class RandomWordsState extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Startup Name Generator'),
+        title: Text('RandomWords'),
       ),
       body: _buildSuggestions(),
     );
@@ -49,10 +49,24 @@ class RandomWordsState extends State {
 
   Widget _buildRow(WordPair pair) {
     return ListTile(
-      title: Text(
-        pair.asPascalCase,
-        style: _biggerFont,
+      // onTap: printClick(pair),
+      title: TextButton(
+        child: Text(
+          pair.asPascalCase,
+          style: _biggerFont,
+        ),
       ),
     );
+  }
+
+  printClick(WordPair pair) {
+    Fluttertoast.showToast(
+        msg: pair.asPascalCase,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0);
   }
 }
