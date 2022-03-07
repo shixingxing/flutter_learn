@@ -55,6 +55,7 @@ class RandomWordsState extends State {
           pair.asPascalCase,
           style: _biggerFont,
         ),
+        onPressed: null,
       ),
     );
   }

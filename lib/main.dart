@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learn/ui/login.dart';
 import 'package:flutter_learn/ui/random_word.dart';
 
 void main() => runApp(MyApp());
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({required this.title}) : super();
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -45,11 +46,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
+  void _goLogin() {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return RandomWordsUI();
+      return Login();
     }));
   }
 
@@ -77,10 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: _goRandomWordsUI,
               child: Text("RandomWords"),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            ElevatedButton(onPressed: _goLogin, child: Text("Login")),
             Row(),
           ],
         ),
